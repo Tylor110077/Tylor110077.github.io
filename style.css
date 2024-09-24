@@ -89,21 +89,27 @@ button:hover {
     margin: 5px 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     display: flex; /* 使用Flexbox布局 */
-    justify-content: space-between; /* 使内容两端对齐 */
-    align-items: center; /* 垂直居中对齐 */
+    flex-direction: column; /* 垂直方向排列 */
+    align-items: center; /* 居中对齐 */
 }
 
 .record-item .record-header {
     font-weight: bold; /* 加粗事件名称 */
     margin-bottom: 5px; /* 事件名称与其他信息之间的间距 */
+    text-align: center; /* 事件名称居中 */
+    width: 100%; /* 占满宽度 */
 }
 
 .record-item .record-details {
-    font-size: 14px; /* 设置详细信息的字体大小 */
-    color: #555; /* 设置详细信息的颜色 */
+    display: flex; /* 使用Flexbox布局 */
+    flex-direction: column; /* 垂直方向排列 */
+    align-items: center; /* 居中对齐 */
+    width: 100%; /* 占满宽度 */
+    margin-top: 5px; /* 添加上边距 */
 }
 
 .record-item .record-duration {
+    text-align: center; /* 总耗时居中 */
     margin-top: 5px; /* 耗时信息与其他信息之间的间距 */
     font-style: italic; /* 斜体显示耗时 */
 }
@@ -124,6 +130,7 @@ button:hover {
 }
 
 .delete-button {
+    margin-top: 10px; /* 添加上边距 */
     background-color: #dc3545; /* Bootstrap 的红色 */
     color: white; /* 字体颜色 */
     border: none; /* 去掉默认边框 */
@@ -135,8 +142,18 @@ button:hover {
     width: 80px; /* 设置固定宽度 */
     height: 30px; /* 设置固定高度 */
     text-align: center; /* 文本居中 */
+    max-width: 100px; /* 设置最大宽度 */
+    overflow: hidden; /* 隐藏溢出文本 */
+    text-overflow: ellipsis; /* 溢出文本显示省略号 */
+    white-space: nowrap; /* 不换行 */
 }
 
 .delete-button:hover {
     background-color: #c82333; /* 悬停时颜色变深 */
+}
+
+.time-block, .end-time-block {
+    width: 100%; /* 占满宽度 */
+    text-align: center; /* 文本居中 */
+    margin: 5px 0; /* 上下间距 */
 }
