@@ -129,12 +129,23 @@ class EventManager {
             // 创建记录标题
             const headerElement = document.createElement('div');
             headerElement.className = 'record-header';
-            headerElement.textContent = `${record.eventDescription} (${record.eventCategory})`; // 显示事件类别
+            headerElement.textContent = `${record.eventDescription}`; // 显示事件名称
 
             // 创建记录详细信息
             const detailsElement = document.createElement('div');
             detailsElement.className = 'record-details';
-            detailsElement.textContent = `开始时间: ${record.startTime} - 结束时间: ${record.endTime ? record.endTime : '进行中'}`;
+
+            // 创建开始时间块
+            const timeElement = document.createElement('div');
+            timeElement.className = 'time-block'; // 添加类以便于样式
+            timeElement.textContent = `开始时间: ${new Date(record.startTime).toLocaleString()}`; // 显示开始时间
+            detailsElement.appendChild(timeElement); // 将开始时间添加到详细信息中
+
+            // 创建结束时间块
+            const endTimeElement = document.createElement('div');
+            endTimeElement.className = 'end-time-block'; // 添加类以便于样式
+            endTimeElement.textContent = `结束时间: ${record.endTime ? new Date(record.endTime).toLocaleString() : '进行中'}`; // 显示结束时间
+            detailsElement.appendChild(endTimeElement); // 将结束时间添加到详细信息中
 
             // 创建耗时信息
             const durationElement = document.createElement('div');
@@ -152,7 +163,7 @@ class EventManager {
             // 将所有元素添加到记录元素中
             recordElement.appendChild(headerElement);
             recordElement.appendChild(detailsElement);
-            recordElement.appendChild(durationElement);
+            recordElement.appendChild(durationElement); // 添加耗时信息
             recordElement.appendChild(deleteButton); // 添加删除按钮
 
             recordsDiv.appendChild(recordElement);
@@ -194,8 +205,12 @@ class EventManager {
 
                 // 创建记录详细信息
                 const detailsElement = document.createElement('div');
-                detailsElement.className = 'record-details';
-                detailsElement.textContent = `开始时间: ${record.startTime} - 结束时间: ${record.endTime ? record.endTime : '进行中'}`;
+                detailsElement.className = 'time-block';
+                detailsElement.textContent = `开始时间: ${record.startTime}`;
+
+                const detailsElement1 = document.createElement('div');
+                detailsElement1.className = 'end-time-block';
+                detailsElement1.textContent = `结束时间: ${record.endTime ? record.endTime : '进行中'}`;
 
                 // 创建耗时信息
                 const durationElement = document.createElement('div');
@@ -213,6 +228,7 @@ class EventManager {
                 // 将所有元素添加到记录元素中
                 recordElement.appendChild(headerElement);
                 recordElement.appendChild(detailsElement);
+                recordElement.appendChild(detailsElement1);
                 recordElement.appendChild(durationElement);
                 recordElement.appendChild(deleteButton); // 添加删除按钮
 
