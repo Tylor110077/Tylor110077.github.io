@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件记录器</title>
+    <!-- 引入Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container text-center mt-5">
+        <h1 class="text-center">事件记录器</h1> <!-- 确保标题居中 -->
+        
+        <div class="row mb-2"> <!-- 减少下边距 -->
+            <div class="col-md-4">
+                <input type="text" id="eventName" class="form-control" placeholder="输入事件名称">
+            </div>
+            <div class="col-md-4">
+                <input type="text" id="eventCategory" class="form-control" placeholder="输入事件类别（可选）">
+            </div>
+            <div class="col-md-4">
+                <button id="eventButton" class="btn btn-primary btn-lg w-100 mb-0">开始事件</button> <!-- 减少按钮下边距 -->
+            </div>
+        </div>
+
+        <div class="row mb-2"> <!-- 减少下边距 -->
+            <div class="col-md-4">
+                <input type="date" id="filterDate" class="form-control" placeholder="选择日期"> <!-- 日期选择器 -->
+            </div>
+            <div class="col-md-4">
+                <button id="filterButton" class="btn btn-primary btn-lg w-100 mb-0" onclick="eventManager.filterRecords()">筛选记录</button> <!-- 修改为相同颜色 -->
+            </div>
+        </div>
+
+        <div id="records" class="mt-4 records-area"></div>
+    </div>
+    <!-- 引入Bootstrap和jQuery的JS -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js" defer></script>
+    <script src="script.js" defer></script>
+</body>
+</html>
