@@ -18,6 +18,21 @@ body {
     margin-top: 50px; /* 添加顶部间距 */
 }
 
+/* 媒体查询：当屏幕宽度小于768px时 */
+@media (max-width: 768px) {
+    .container {
+        width: 90%; /* 框架占据手机90%的空间 */
+    }
+
+    button {
+        font-size: 10px; /* 按钮字体变小 */
+    }
+
+    .record-header {
+        font-size: 14px; /* 标题字体变小 */
+    }
+}
+
 .input-area {
     margin-bottom: 10px; /* 减少输入区域与记录区域之间的间距 */
 }
@@ -74,7 +89,8 @@ button:hover {
     margin: 5px 0;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     display: flex; /* 使用Flexbox布局 */
-    flex-direction: column; /* 垂直排列 */
+    justify-content: space-between; /* 使内容两端对齐 */
+    align-items: center; /* 垂直居中对齐 */
 }
 
 .record-item .record-header {
@@ -105,18 +121,6 @@ button:hover {
     text-align: center; /* 居中对齐 */
     margin: 20px 0; /* 上下留出一定的空隙 */
     color: #dc3545; /* 设置颜色为Bootstrap的警告色 */
-}
-
-.record-item {
-    background-color: #ffffff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 5px 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    display: flex; /* 使用Flexbox布局 */
-    justify-content: space-between; /* 使内容两端对齐 */
-    align-items: center; /* 垂直居中对齐 */
 }
 
 .delete-button {
